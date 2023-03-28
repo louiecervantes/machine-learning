@@ -21,11 +21,11 @@ def app():
     st.subheader("Louie F. Cervantes M.Eng. \n(c) 2023 WVSU College of ICT")
     
     st.title("This app will compare machine learning algorithms")
-    st.text('We use a dataset of mobile phone attributes \n
-              to train the ML classifiers. We then split the \n
-              data into training and test sets. Each classifier \n
-              is tasked to predict the pricing class then the \n
-              accuracy of each one is measured by counting the \n
+    st.text('We use a dataset of mobile phone attributes \n \
+              to train the ML classifiers. We then split the \n \
+              data into training and test sets. Each classifier \n \
+              is tasked to predict the pricing class then the \n \
+              accuracy of each one is measured by counting the \n \
               number of correct predictions over the entire test set')
     # Load the mobile phone dataset
     df=pd.read_csv('mobilephones.csv', header=0)
