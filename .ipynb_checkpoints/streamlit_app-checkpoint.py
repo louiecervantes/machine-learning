@@ -26,6 +26,7 @@ def app():
     # Load the mobile phone dataset
     df=pd.read_csv('mobilephones.csv', header=0)
     st.dataframe(df, width=800, height=400, paginate=True)
+
      
 
 # Run the app
