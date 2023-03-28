@@ -1,6 +1,7 @@
 streamlit
 streamlit_option_menu
-openai
-Image
-Pillow
 matplotlib
+pandas
+seaborn
+scikit-learn
+numpy
