@@ -29,7 +29,7 @@ def app():
               number of correct predictions over the entire test \
               set')
     # Load the mobile phone dataset
-    df=pd.read_csv('/content/drive/MyDrive/Colab Notebooks/Midterm/mobilephones.csv', header=0)
+    df=pd.read_csv('mobilephones.csv', header=0)
     st.dataframe(df)
      
 
