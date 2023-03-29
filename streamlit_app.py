@@ -35,7 +35,7 @@ def app():
                           'wifi', 'price_range'], 
                    columns= ["count","mean","std","min",
                              "25%","50%","75%","max"], data= desc )
-    if st.button('Continue'):
+    if st.button('Begin'):
         fig, ax = plt.subplots(figsize=(12,12))
         sns.heatmap(df1, annot=True,cmap = "Blues", fmt= '.0f',
         ax=ax,linewidths = 5, cbar = False,
@@ -79,6 +79,10 @@ def app():
         y_test_pred = clfKNN.predict(X_test)
         st.subheader("Classifier performance on training dataset")
         st.write(classification_report(y_test, clfKNN.predict(X_test)))
+        cmKNN = confusion_matrix(y_test, y_test_pred)
+        st.write(cmKNN)
+        
+        
 
 
 # Run the app
