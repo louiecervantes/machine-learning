@@ -80,8 +80,19 @@ def app():
         st.subheader("Classifier performance on training dataset")
         st.write(classification_report(y_test, clfKNN.predict(X_test)))
         cmKNN = confusion_matrix(y_test, y_test_pred)
+        st.write("The confusion matrix")
         st.write(cmKNN)
-        
+  
+    st.write('Support Vector Machines (SVM) is a supervised machine learning algorithm used for classification, regression and outlier detection. The main idea behind SVM is to find the hyperplane that best separates the different classes of data. In a binary classification problem, the hyperplane is a line that maximizes the margin between the two classes. The margin is defined as the distance between the hyperplane and the closest data points from each class. The hyperplane that maximizes the margin is also known as the maximum-margin hyperplane. The SVM algorithm can be used for linearly separable and non-linearly separable data by mapping the input data into a higher-dimensional feature space where it is more likely to be linearly separable. This is done by using a kernel function that computes the similarity between two data points in the higher-dimensional feature space.')
+    if st.button('Run SVM'):
+        clfSVM = svm.SVC(kernel='rbf', C=1000, gamma=1.0)
+        clfSVM.fit(X_train, y_train)
+        y_test_pred = clfSVM.predict(X_test)
+        st.subheader("Classifier performance on training dataset")
+        st.write(classification_report(y_test, clfSVM.predict(X_test)))        
+        cmSVM = confusion_matrix(y_test, y_test_pred)
+        st.write("The confusion matrix")
+        st.write(cmSVM)
         
 
 
