@@ -93,7 +93,17 @@ def app():
         cmSVM = confusion_matrix(y_test, y_test_pred)
         st.write("The confusion matrix")
         st.write(cmSVM)
-        
+
+    st.write('Extreme Random Forest (or Extra Trees) is an ensemble learning method used for classification, regression and feature selection tasks. It is a variant of the Random Forest algorithm and works by constructing multiple decision trees using random subsets of the training data and random subsets of the features. The difference between Random Forest and Extra Trees lies in the way the decision trees are constructed. In Random Forest, each decision tree is constructed by randomly selecting a subset of the features and finding the best split among those features. In Extra Trees, each decision tree is constructed using random splits, regardless of the quality of the split.')
+    if st.button('Run ERF'):
+        clfERF = ExtraTreesClassifier( n_estimators=100, max_depth=5, random_state=0)
+        clfERF.fit(X_train, y_train)
+        y_test_pred = clfERF.predict(X_test)
+        st.subheader("ERF Classfication Performance")
+        st.write(classification_report(y_test, clfERF.predict(X_test)))        
+        cmERF = confusion_matrix(y_test, y_test_pred)
+        st.write("The confusion matrix")
+        st.write(cmERF)
 
 
 # Run the app
