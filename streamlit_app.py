@@ -50,34 +50,34 @@ def app():
         st.write("More useful information about the dataset")
         st.write(df.describe().T) 
 
-     #The default test size is 20%
-     test_size = 0.2
-     st.write('Set the percentage of the test set.') 
-     if st.selectbox('Select the proportion of the test set', ('10%', '20%', '30%')):
-        if selected_option=='10%':
-            test_size = 0.1
-        if selected_option=='20%':
-            test_size = 0.2
-        if selected_option=='30%':
-            test_size = 0.3
+        #The default test size is 20%
+        test_size = 0.2
+        st.write('Set the percentage of the test set.') 
+        if st.selectbox('Select the proportion of the test set', ('10%', '20%', '30%')):
+            if selected_option=='10%':
+                test_size = 0.1
+            if selected_option=='20%':
+                test_size = 0.2
+            if selected_option=='30%':
+                test_size = 0.3
         
-        #load the data and the labels into training and test sets
-        X = df.values[:,0:-1]
-        y = df.values[:,-1]
-        # Split data into training and testing sets
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+            #load the data and the labels into training and test sets
+            X = df.values[:,0:-1]
+            y = df.values[:,-1]
+            # Split data into training and testing sets
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
         
-        st.write('The k-nearest neighbor (k-NN) classifier is a type of machine learning algorithm that can be used for both classification and regression problems.In the k-NN classifier, the training data is used to determine the k closest neighbors to a new input data point. The k closest neighbors are determined based on a distance metric, such as Euclidean distance or Manhattan distance. The class of the new data point is then predicted based on the class of the majority of its k-nearest neighbors. For example, if k = 3 and two of the neighbors belong to class A while one belongs to class B, the new data point is classified as belonging to class A.')
-        if st.button('Run KNN'):
-            # Number of nearest neighbors
-            num_neighbors = 5
-            # Create a K Nearest Neighbors classifier model
-            clfKNN = neighbors.KNeighborsClassifier(num_neighbors,
-            weights='distance')
-            clfKNN.fit(X_train, y_train)
-            y_test_pred = clfKNN.predict(X_test)
-            st.subheader("Classifier performance on training dataset")
-            st.write(classification_report(y_test, clfKNN.predict(X_test)))
+            st.write('The k-nearest neighbor (k-NN) classifier is a type of machine learning algorithm that can be used for both classification and regression problems.In the k-NN classifier, the training data is used to determine the k closest neighbors to a new input data point. The k closest neighbors are determined based on a distance metric, such as Euclidean distance or Manhattan distance. The class of the new data point is then predicted based on the class of the majority of its k-nearest neighbors. For example, if k = 3 and two of the neighbors belong to class A while one belongs to class B, the new data point is classified as belonging to class A.')
+            if st.button('Run KNN'):
+                # Number of nearest neighbors
+                num_neighbors = 5
+                # Create a K Nearest Neighbors classifier model
+                clfKNN = neighbors.KNeighborsClassifier(num_neighbors,
+                weights='distance')
+                clfKNN.fit(X_train, y_train)
+                y_test_pred = clfKNN.predict(X_test)
+                st.subheader("Classifier performance on training dataset")
+                st.write(classification_report(y_test, clfKNN.predict(X_test)))
 
 
 # Run the app
