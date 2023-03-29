@@ -52,8 +52,9 @@ def app():
 
         #The default test size is 20%
         test_size = 0.2
-        st.write('Set the percentage of the test set.') 
-        selected_option = st.selectbox('Select the proportion of the test set', ['10%', '20%', '30%']):
+        st.write('Set the percentage of the test set.')
+        options = ['10%', '20%', '30%']
+        selected_option = st.selectbox('Select the proportion of the test set', options):
             if selected_option=='10%':
                 test_size = 0.1
             if selected_option=='20%':
