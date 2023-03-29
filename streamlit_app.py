@@ -107,7 +107,7 @@ def app():
         st.write(cmERF)
         
     st.subheader("Conclusion")
-    st.write("After running this classification test, we find that the SVM can correctly predict the price classification with 98% accuracy.")
+    st.write("After running this classification test, we find that the SVM can correctly predict the price classification with 98% accuracy.')
 
 
 # Run the app
