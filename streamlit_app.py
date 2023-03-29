@@ -55,12 +55,12 @@ def app():
         st.write('Set the percentage of the test set.')
         options = ['10%', '20%', '30%']
         selected_option = st.selectbox('Select the proportion of the test set', options)
-            if selected_option=='10%':
-                test_size = 0.1
-            if selected_option=='20%':
-                test_size = 0.2
-            if selected_option=='30%':
-                test_size = 0.3
+        if selected_option=='10%':
+            test_size = 0.1
+        if selected_option=='20%':
+            test_size = 0.2
+        if selected_option=='30%':
+            test_size = 0.3
         
             #load the data and the labels into training and test sets
             X = df.values[:,0:-1]
