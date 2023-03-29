@@ -51,6 +51,7 @@ def app():
         st.write(df.describe().T) 
 
     #The default test size is 20%
+    st.write('The choice of the training size can affect the result of the classification test.  If the value is too high, it will result in less training set and reduce the classification performance.")
     test_size = 0.2
     st.write('Set the percentage of the test set.')
     options = ['10%', '20%', '30%']
@@ -104,6 +105,9 @@ def app():
         cmERF = confusion_matrix(y_test, y_test_pred)
         st.write("The confusion matrix")
         st.write(cmERF)
+        
+    st.subheader("Conclusion")
+    st.write("After running this classification test, we find that the SVM can correctly predict the price classification with 98% accuracy.")
 
 
 # Run the app
